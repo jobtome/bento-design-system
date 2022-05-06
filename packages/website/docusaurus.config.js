@@ -39,7 +39,7 @@ const config = {
           },
           plugins: [
             // These plugins are needed to make @babel/generate work in browser
-            new ProvidePlugin({ process: "process/browser" }),
+            new ProvidePlugin({ process: "process/browser.js" }),
             new ProvidePlugin({
               Buffer: ["buffer", "Buffer"],
             }),
