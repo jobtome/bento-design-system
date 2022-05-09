@@ -1,0 +1,18 @@
+name: Sync Fork
+on: 
+  workflow_dispatch: 
+  schedule:
+    - chron: "0 13 * * 1"
+
+jobs: 
+  sync: 
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Sync and merge forked repo with current repo
+        uses: dabreadman/sync-upstream-repo@v1.1.0.b
+        with: 
+          upstream_repo: https://github.com/buildo/bento-design-system
+          upstream_branch: main
+          downstream_branch: main
+          token: ${{env.GITHUB_TOKEN}}
