@@ -12,7 +12,7 @@ jobs:
       - name: Sync and merge forked repo with current repo
         uses: dabreadman/sync-upstream-repo@v1.1.0.b
         with: 
-          upstream_repo: https://github.com/buildo/bento-design-system
+          upstream_repo: https://github.com/buildo/bento-design-system.git
           upstream_branch: main
           downstream_branch: main
           token: ${{secrets.GITHUB_TOKEN}}
