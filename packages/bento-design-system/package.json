@@ -1,6 +1,6 @@
 {
   "name": "@buildo/bento-design-system",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "description": "The buildo DS",
   "main": "lib/index.js",
   "files": [
@@ -86,6 +86,7 @@
     "react-table": "^7.7.0",
     "react-use": "^17.3.2",
     "ts-deepmerge": "^2.0.1",
+    "ts-pattern": "^4.0.3",
     "ts-toolbelt": "^9.6.0"
   },
   "devDependencies": {
