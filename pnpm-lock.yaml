@@ -63,7 +63,7 @@ importers:
       '@types/react': 17.0.45
       '@types/react-input-mask': 2.0.5
       '@types/react-table': 7.7.12
-      '@vanilla-extract/babel-plugin': 1.1.6
+      '@vanilla-extract/babel-plugin': 1.1.7
       '@vanilla-extract/css': 1.6.8
       '@vanilla-extract/dynamic': ^2.0.2
       '@vanilla-extract/esbuild-plugin': 2.1.0
@@ -170,7 +170,7 @@ importers:
       '@types/react': 17.0.45
       '@types/react-input-mask': 2.0.5
       '@types/react-table': 7.7.12
-      '@vanilla-extract/babel-plugin': 1.1.6
+      '@vanilla-extract/babel-plugin': 1.1.7
       '@vanilla-extract/css': 1.6.8
       '@vanilla-extract/esbuild-plugin': 2.1.0
       '@vanilla-extract/private': 1.0.3
@@ -213,11 +213,11 @@ importers:
       '@storybook/builder-webpack5': ^6.4.22
       '@storybook/manager-webpack5': ^6.4.22
       '@storybook/react': 6.4.20
-      '@storybook/testing-library': 0.0.11
+      '@storybook/testing-library': 0.0.12
       '@types/lodash.orderby': 4.6.7
       '@types/react': 17.0.45
       '@types/react-table': 7.7.12
-      '@vanilla-extract/babel-plugin': 1.1.6
+      '@vanilla-extract/babel-plugin': 1.1.7
       '@vanilla-extract/css': 1.6.8
       '@vanilla-extract/private': 1.0.3
       '@vanilla-extract/sprinkles': 1.4.1
@@ -251,11 +251,11 @@ importers:
       '@storybook/builder-webpack5': 6.4.22_4a3e00e9524ced4aa8a66eaebb591616
       '@storybook/manager-webpack5': 6.4.22_4a3e00e9524ced4aa8a66eaebb591616
       '@storybook/react': 6.4.20_0ee18a985e9889d488f17ffb4292c0da
-      '@storybook/testing-library': 0.0.11_react-dom@17.0.2+react@17.0.2
+      '@storybook/testing-library': 0.0.12_react-dom@17.0.2+react@17.0.2
       '@types/lodash.orderby': 4.6.7
       '@types/react': 17.0.45
       '@types/react-table': 7.7.12
-      '@vanilla-extract/babel-plugin': 1.1.6
+      '@vanilla-extract/babel-plugin': 1.1.7
       '@vanilla-extract/css': 1.6.8
       '@vanilla-extract/private': 1.0.3
       '@vanilla-extract/webpack-plugin': 2.1.10
@@ -7904,8 +7904,8 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /@storybook/testing-library/0.0.11_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-8KbKx3s1e+uF3oWlPdyXRpZa6xtCsCHtXh1nCTisMA6P5YcSDaCg59NXIOVIQCAwKvjRomlqMJH8JL1WyOzeVg==}
+  /@storybook/testing-library/0.0.12_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-MU11qXTPfqwxLQRC19yDf9/79IQSrBHLIt0epU0/SJGEVnwl41L2lgE3ptdCEY8IYzYOjjUXmf+klSFfKXQ7/w==}
     dependencies:
       '@storybook/client-logger': 6.4.22
       '@storybook/instrumenter': 6.4.19_react-dom@17.0.2+react@17.0.2
@@ -8967,12 +8967,12 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vanilla-extract/babel-plugin/1.1.6:
-    resolution: {integrity: sha512-oxPjQ2QMDRMOl4ioDDPr7Evl+8yA+HLWBpy5XL/0fAazBigNbwEz5NdvPNc2k18iuXHmQaeZ2oiBJ5h3JTjcAQ==}
+  /@vanilla-extract/babel-plugin/1.1.7:
+    resolution: {integrity: sha512-nTCOb1N/u1FUxACxV/jvpLm4xchiCdEHTUZrxCWjYOrIxqkfgpJXE4T7q/1VyEje/M929DFBUaD+YkPzaqGMzA==}
     dependencies:
       '@babel/core': 7.17.10
       '@babel/template': 7.16.7
-      '@vanilla-extract/integration': 4.0.1
+      '@vanilla-extract/integration': 5.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true
