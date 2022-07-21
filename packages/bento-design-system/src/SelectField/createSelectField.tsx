@@ -33,6 +33,7 @@ type Props<A, IsMulti extends boolean> = (IsMulti extends false
   noOptionsMessage?: LocalizedString;
   autoFocus?: boolean;
   isReadOnly?: boolean;
+  searchable?: boolean;
 } & (IsMulti extends true
     ? {
         multiValueMessage?: (numberOfSelectedOptions: number) => LocalizedString;
@@ -78,6 +79,7 @@ export function createSelectField(
       noOptionsMessage,
       autoFocus,
       menuSize = dropdownConfig.defaultMenuSize,
+      searchable,
     } = props;
 
     const validationState = issues ? "invalid" : "valid";
@@ -121,7 +123,7 @@ export function createSelectField(
           autoFocus={autoFocus}
           value={
             isMulti
-              ? options.filter((o) => (value as readonly A[]).includes(o.value))
+              ? options.filter((o) => ((value ?? []) as readonly A[]).includes(o.value))
               : options.find((o) => o.value === value)
           }
           onChange={(o) => {
@@ -141,7 +143,7 @@ export function createSelectField(
             .sort((a, b) => {
               // In case of multi-select, we display the selected options first
               if (isMulti) {
-                const selectedValues = value as readonly A[];
+                const selectedValues = (value ?? []) as readonly A[];
                 const isSelected = (a: SelectOption<A>) => selectedValues.includes(a.value);
                 if (isSelected(a) && !isSelected(b)) {
                   return -1;
@@ -174,7 +176,7 @@ export function createSelectField(
           hideSelectedOptions={false}
           menuSize={menuSize}
           menuIsOpen={isReadOnly ? false : undefined}
-          isSearchable={isReadOnly ? false : undefined}
+          isSearchable={isReadOnly ? false : searchable ?? true}
           showMultiSelectBulkActions={
             isMulti ? (props as unknown as Props<A, true>).showMultiSelectBulkActions : false
           }
