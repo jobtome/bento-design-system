@@ -38,14 +38,9 @@ export function createDisclosure(config: DisclosureConfig) {
     const [internalIsOpen, setInternalIsOpen] = useState(isOpen ?? initialIsOpen);
     const open = internalIsOpen ?? isOpen;
     const onPress = onToggle ? () => onToggle(!isOpen) : () => setInternalIsOpen(!internalIsOpen);
-    const {
-      pressProps: { color: _discard1, ...pressProps },
-    } = usePress({ onPress });
+    const { pressProps } = usePress({ onPress });
     const contentId = useId();
-    const {
-      focusProps: { color: _discard2, ...focusProps },
-      isFocusVisible,
-    } = useFocusRing();
+    const { focusProps, isFocusVisible } = useFocusRing();
 
     const icon = open ? config.icons.open : config.icons.closed;
 
@@ -68,7 +63,7 @@ export function createDisclosure(config: DisclosureConfig) {
             reverse={iconPosition === "trailing"}
           >
             <Column width="content">
-              {icon({ size: 16, color: level === 1 ? "primary" : "secondary" })}
+              {icon({ size: config.iconSize[level], color: level === 1 ? "primary" : "secondary" })}
             </Column>
             <Title size={config.titleSize[level]} color={level === 1 ? "default" : "secondary"}>
               {title}

@@ -6,7 +6,6 @@ import { useDialog } from "@react-aria/dialog";
 import { FocusScope } from "@react-aria/focus";
 import { modalRecipe, underlay, modalBody } from "./Modal.css";
 import useKeyPressEvent from "react-use/lib/useKeyPressEvent";
-import { ModalContext } from "./ModalContext";
 import { useDefaultMessages } from "../util/useDefaultMessages";
 import { IconButtonProps } from "../IconButton/createIconButton";
 import { createPortal } from "../util/createPortal";
@@ -26,6 +25,7 @@ type Props = {
   isDestructive?: boolean;
   loadingMessage?: ActionsProps["loadingMessage"];
   error?: ActionsProps["error"];
+  errorBannerWidth?: ActionsProps["errorBannerWidth"];
   size?: ModalSize;
   kind?: ModalKind;
   autoFocus?: boolean;
@@ -62,22 +62,19 @@ export function createModal(
     );
 
     return createPortal(
-      <Box className={underlay} {...underlayProps} color={undefined}>
-        <ModalContext.Provider value={true}>
-          <FocusScope contain restoreFocus autoFocus={props.autoFocus ?? true}>
-            <Box
-              className={modalRecipe({ elevation: config.elevation })}
-              {...overlayProps}
-              {...modalProps}
-              {...dialogProps}
-              color={undefined}
-              borderRadius={config.radius}
-              style={{ width: config.width[props.size || "medium"] }}
-            >
-              {props.children}
-            </Box>
-          </FocusScope>
-        </ModalContext.Provider>
+      <Box className={underlay} {...underlayProps}>
+        <FocusScope contain restoreFocus autoFocus={props.autoFocus ?? true}>
+          <Box
+            className={modalRecipe({ elevation: config.elevation })}
+            {...overlayProps}
+            {...modalProps}
+            {...dialogProps}
+            borderRadius={config.radius}
+            style={{ width: config.width[props.size || "medium"] }}
+          >
+            {props.children}
+          </Box>
+        </FocusScope>
       </Box>
     );
   }
@@ -136,6 +133,7 @@ export function createModal(
             size="large"
             loadingMessage={props.loadingMessage}
             error={props.error}
+            errorBannerWidth={props.errorBannerWidth || config.defaultErrorBannerWidth}
           />
         </Inset>
       </CustomModal>
