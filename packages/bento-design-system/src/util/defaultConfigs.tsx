@@ -52,7 +52,6 @@ import { TooltipConfig } from "../Tooltip/Config";
 import { InlineLoaderConfig } from "../InlineLoader/Config";
 import { DecorativeDividerConfig } from "../Divider/Config";
 import { DateFieldConfig } from "../DateField/Config";
-import { Box } from "../Box/Box";
 
 export const actions: ActionsConfig = {
   primaryActionButtonKind: "solid",
@@ -242,7 +241,6 @@ export const input: InputConfig = {
   paddingY: 16,
   fontSize: "large",
   internalSpacing: 16,
-  iconSize: 16,
   passwordIconSize: 24,
   passwordShowIcon: IconEye,
   passwordHideIcon: IconEyeClosed,
@@ -380,16 +378,13 @@ export const navigation: NavigationConfig = {
     medium: "large",
     large: "large",
   },
-  activeVisualElement: (
-    <Box
-      position="absolute"
-      left={0}
-      bottom={0}
-      background="brandPrimary"
-      width="full"
-      style={{ height: 2 }}
-    />
-  ),
+  activeVisualElement: {
+    lineColor: "brandPrimary",
+    lineHeight: {
+      medium: 2,
+      large: 2,
+    },
+  },
   uppercaseLabel: false,
 };
 
@@ -434,6 +429,8 @@ export const dropdown: DropdownConfig = {
 export const table: TableConfig = {
   headerInfoIcon: IconInformative,
   emptyIllustration: IllustrationSearch,
+  headerBackgroundColor: "backgroundPrimary",
+  headerForegroundColor: undefined,
 };
 
 export const toast: ToastConfig = {
@@ -443,7 +440,6 @@ export const toast: ToastConfig = {
   messageSize: "medium",
   closeIcon: IconClose,
   closeIconSize: 12,
-  smallButtonPaddingY: button.paddingY.small,
   outline: false,
   internalSpacing: 16,
   elevation: "none",
