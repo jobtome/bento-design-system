@@ -3,7 +3,6 @@ import {
   Line,
   XAxis,
   YAxis,
-  Tooltip,
   Legend,
   ResponsiveContainer,
 } from "recharts";
@@ -12,7 +11,8 @@ import { bodyRecipe } from "../../Typography/Body/Body.css";
 import { allColors } from "../../util/atoms";
 import { ChartProps } from "../ChartProps";
 import { legendContent } from "../Legend/Legend";
-import { tooltipContent } from "../Tooltip/Tooltip";
+import { useTooltip } from "../Tooltip/Tooltip";
+import { ValueFormatter } from "../ValueFormatter";
 
 type Props<D extends string, C extends string> = ChartProps & {
   data: Record<D | C, unknown>[];
@@ -29,6 +29,8 @@ type Props<D extends string, C extends string> = ChartProps & {
     | "step"
     | "stepBefore"
     | "stepAfter";
+  xAxisValueFormatter?: ValueFormatter;
+  yAxisValueFormatter?: ValueFormatter;
 };
 
 export type { Props as LineChartProps };
@@ -52,8 +54,11 @@ export function LineChart<D extends string, C extends string>({
   lineType = "monotone",
   dataColors,
   children,
+  xAxisValueFormatter,
+  yAxisValueFormatter,
 }: Props<D, C>) {
   const config = useBentoConfig();
+  const tooltip = useTooltip({ formatter: yAxisValueFormatter });
   const colors = (dataColors ?? config.chart.defaultDataColors).map(
     (colorName) => allColors[colorName]
   );
@@ -81,9 +86,9 @@ export function LineChart<D extends string, C extends string>({
             dot={false}
           />
         ))}
-        {!hideXAxis && <XAxis dataKey={dataKey} />}
-        {!hideYAxis && <YAxis />}
-        {!hideTooltip && <Tooltip content={tooltipContent} />}
+        {!hideXAxis && <XAxis dataKey={dataKey} tickFormatter={xAxisValueFormatter} />}
+        {!hideYAxis && <YAxis tickFormatter={yAxisValueFormatter} />}
+        {!hideTooltip && tooltip}
         {!hideLegend && <Legend content={legendContent} />}
         {children}
       </RechartLineChart>

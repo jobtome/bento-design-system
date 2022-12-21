@@ -1,22 +1,17 @@
-import {
-  PieChart as RechartPieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { PieChart as RechartPieChart, Pie, Cell, Legend, ResponsiveContainer } from "recharts";
 import { useBentoConfig } from "../../BentoConfigContext";
 import { bodyRecipe } from "../../Typography/Body/Body.css";
 import { allColors } from "../../util/atoms";
 import { ChartProps } from "../ChartProps";
 import { legendContent } from "../Legend/Legend";
-import { tooltipContent } from "../Tooltip/Tooltip";
+import { useTooltip } from "../Tooltip/Tooltip";
+import { ValueFormatter } from "../ValueFormatter";
 
 type Props<D extends string, C extends string> = ChartProps & {
   data: Record<C | D, unknown>[];
   category: C;
   dataKey: D;
+  tooltipFormatter?: ValueFormatter;
 };
 
 export type { Props as DonutChartProps };
@@ -37,8 +32,10 @@ export function DonutChart<D extends string, C extends string>({
   debounce,
   dataColors,
   children,
+  tooltipFormatter,
 }: Props<D, C>) {
   const config = useBentoConfig();
+  const tooltip = useTooltip({ formatter: tooltipFormatter });
   const colors = (dataColors ?? config.chart.defaultDataColors).map(
     (colorName) => allColors[colorName]
   );
@@ -74,7 +71,7 @@ export function DonutChart<D extends string, C extends string>({
             <Cell key={`cell-${i}`} fill={colors[i % colors.length]} />
           ))}
         </Pie>
-        {!hideTooltip && <Tooltip content={tooltipContent} />}
+        {!hideTooltip && tooltip}
         {!hideLegend && <Legend content={legendContent} />}
         {children}
       </RechartPieChart>
