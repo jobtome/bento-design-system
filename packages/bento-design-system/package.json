@@ -1,6 +1,6 @@
 {
   "name": "@buildo/bento-design-system",
-  "version": "0.15.6",
+  "version": "0.15.7",
   "description": "The buildo DS",
   "main": "lib/index.js",
   "files": [
@@ -41,7 +41,7 @@
     "@datepicker-react/hooks": "^2.8.4",
     "@dessert-box/core": "0.2.0",
     "@floating-ui/core": "1.0.4",
-    "@floating-ui/dom": "1.0.9",
+    "@floating-ui/dom": "1.0.12",
     "@floating-ui/react-dom": "1.0.1",
     "@fontsource/ibm-plex-sans": "^4.5.11",
     "@internationalized/date": "^3.0.0",
@@ -114,7 +114,7 @@
     "@testing-library/user-event": "14.3.0",
     "@types/jest": "28.1.8",
     "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.8",
+    "@types/react-dom": "18.0.9",
     "@types/react-input-mask": "2.0.5",
     "@types/react-table": "7.7.12",
     "@vanilla-extract/babel-plugin": "1.1.7",
