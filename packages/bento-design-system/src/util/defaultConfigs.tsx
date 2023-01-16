@@ -204,7 +204,7 @@ export const feedback: FeedbackConfig = {
   positiveIllustration: IllustrationPositive,
   negativeIllustration: IllustrationNegative,
   title: {
-    medium: "large",
+    medium: { kind: "title", size: "large" },
     large: { kind: "display", size: "small" },
   },
   descriptionSize: {
@@ -263,6 +263,7 @@ export const input: InputConfig = {
   paddingY: 16,
   fontSize: "large",
   internalSpacing: 16,
+  background: { default: "backgroundPrimary", readOnly: "backgroundSecondary" },
   passwordIconSize: 24,
   passwordShowIcon: IconEye,
   passwordHideIcon: IconEyeClosed,
@@ -452,6 +453,8 @@ export const dropdown: DropdownConfig = {
     },
   },
   defaultMenuSize: "medium",
+  openIndicatorIcon: IconChevronDown,
+  openIndicatorIconSize: 16,
 };
 
 export const table: TableConfig = {
