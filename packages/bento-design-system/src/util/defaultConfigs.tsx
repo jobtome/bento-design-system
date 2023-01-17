@@ -138,6 +138,7 @@ export const button: ButtonConfig = {
   },
   uppercaseLabel: true,
   defaultSize: "medium",
+  defaultIconPosition: "leading",
 };
 
 export const card: CardConfig = {
@@ -374,6 +375,7 @@ export const modal: ModalConfig = {
   },
   titleIconSize: 24,
   defaultErrorBannerWidth: "content",
+  actionsSize: "large",
 };
 
 export const navigation: NavigationConfig = {
@@ -464,6 +466,7 @@ export const table: TableConfig = {
   headerForegroundColor: undefined,
   hintPlacement: "top",
   cellTooltipPlacement: "bottom",
+  evenRowsBackgroundColor: "backgroundSecondary",
 };
 
 export const toast: ToastConfig = {
